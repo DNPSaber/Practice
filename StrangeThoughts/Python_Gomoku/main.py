@@ -36,17 +36,15 @@ class Drawing:
         for i in pdata[2]:
             plt.scatter(i[0], i[1], s=100, c='white', zorder=2)
         if ds == 1:
-            plt.plot([0, 15], [y, y], c='red', zorder=3)  # 横线
+            plt.plot([0, 15], [y, y], c='red', zorder=3)
         elif ds == 2:
-            plt.plot([x, x], [0, 15], c='red', zorder=3)  # 竖线
+            plt.plot([x, x], [0, 15], c='red', zorder=3)
         elif ds == 3:
-            # 斜率为1的对角线
             offset = min(x, y)
             start_x, start_y = x - offset, y - offset
             end_x, end_y = x + (15 - max(x, y)), y + (15 - max(x, y))
             plt.plot([start_x, end_x], [start_y, end_y], c='red', zorder=3)
         elif ds == 4:
-            # 斜率为-1的对角线
             offset = min(x, 15 - y)
             start_x, start_y = x - offset, y + offset
             end_x, end_y = x + min(15 - x, y), y - min(15 - x, y)
